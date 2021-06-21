@@ -15,14 +15,14 @@ ylabel('y')
 
 %% 
 g = 9.81; 
-nu = 0*1e-3;
-beta = 0*1e-1;
-kappa = 1e2;
+nu = 1e-3;
+beta = 1e-2;
+kappa = 0*1e-2;
 k = 1;
 a = 1/10; 
 omega = sqrt(g * k);
 z = 2; 
-d = z+a-a*exp(-k*z);
+d = z;
 tspan = [0 20];
 IC = [0; a*omega; 0; a * exp(- k * z) * omega]; %these need to 
 %be chosen to satisfy the e.o.m. for water waves
