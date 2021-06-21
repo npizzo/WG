@@ -17,7 +17,7 @@ ylabel('y')
 g = 9.81; 
 nu = 0*1e-3;
 beta = 0*1e-1;
-kappa = 1e2;
+kappa = 1e-1;
 k = 1;
 a = 1/10; 
 omega = sqrt(g * k);
