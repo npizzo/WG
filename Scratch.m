@@ -12,3 +12,12 @@ subplot(2,1,2)
 plot(y(:,1),-z+y2,'r')
 xlabel('x')
 ylabel('y')
+
+%%
+x = [0: .1: 2*pi];
+for 1 = 1 : 5 
+subplot(5,1,i)
+plot(x, a * cos(k*x-omega*t(i)),'--k')
+hold on
+plot(y(i,1),y1(i),'ok','markerfacecolor','k')
+end
