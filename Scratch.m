@@ -14,7 +14,7 @@ xlabel('x')
 ylabel('y')
 
 %% 
-g = 9.81; 
+g = 0*9.81; 
 nu = 0*1e-3;
 beta = 0*1e-1;
 kappa = 1e-1;
@@ -23,8 +23,8 @@ a = 1/10;
 omega = sqrt(g * k);
 z = 2; 
 d = z+a-a*exp(-k*z);
-tspan = [0 20];
-IC = [0; a*omega; 0; a * exp(- k * z) * omega]; %these need to 
+tspan = [0 60];
+IC = [0; a*omega+0.1; 0; a * exp(- k * z) * omega]; %these need to 
 %be chosen to satisfy the e.o.m. for water waves
 [t,y] = ode45(@(t,y) WGM(t,y,g,nu,beta,kappa,k,omega,a,d,z),tspan,IC);
 y1 = a * cos(k * y(:,1) - omega * t);
@@ -34,11 +34,11 @@ x = [-pi: .1: pi];
 for i = 1 : 5 : length(t)
 plot(x, a * cos(k*x-omega*t(i)),'--k')
 hold on
-plot(y(i,1),y1(i),'ok','markerfacecolor','k')
+plot(wrapToPi(y(i,1)),y1(i),'ok','markerfacecolor','k')
 hold on
 plot(x, -z+a *exp(-k * z)*cos(k*x-omega*t(i)),'--r')
 hold on
-plot(y(i,3), -z+y2(i),'or','markerfacecolor','r')
+plot(wrapToPi(y(i,3)), -z+y2(i),'or','markerfacecolor','r')
 hold off
 ylim([-3 1/2])
 xlim([-pi pi])
