@@ -30,22 +30,22 @@ xlabel('x')
 ylabel('y')
 
 %% 
-g = 0*9.81; 
-nu = 0*1e-3;
-beta = 0*1e-1;
-kappa = 1e-1;
-k = 1;
-a = 1/10; 
-omega = sqrt(g * k);
-z = 2; 
-d = z+a-a*exp(-k*z);
-tspan = [0 60];
-IC = [0; a*omega+0.1; 0; a * exp(- k * z) * omega]; %these need to 
-%be chosen to satisfy the e.o.m. for water waves
-[t,y] = ode45(@(t,y) WGM(t,y,g,nu,beta,kappa,k,omega,a,d,z),tspan,IC);
-y1 = a * cos(k * y(:,1) - omega * t);
-y2 = a * exp(- z * k) * cos(k * y(:,3) - omega * t);
-x = [-pi: .1: pi];
+% g = 0*9.81; 
+% nu = 0*1e-3;
+% beta = 0*1e-1;
+% kappa = 1e-1;
+% k = 1;
+% a = 1/10; 
+% omega = sqrt(g * k);
+% z = 2; 
+% d = z+a-a*exp(-k*z);
+% tspan = [0 60];
+% IC = [0; a*omega+0.1; 0; a * exp(- k * z) * omega]; %these need to 
+% %be chosen to satisfy the e.o.m. for water waves
+% [t,y] = ode45(@(t,y) WGM(t,y,g,nu,beta,kappa,k,omega,a,d,z),tspan,IC);
+% y1 = a * cos(k * y(:,1) - omega * t);
+% y2 = a * exp(- z * k) * cos(k * y(:,3) - omega * t);
+% x = [-pi: .1: pi];
 %% make a movie 
 clf
 for i = 1 : 5 : length(t)
