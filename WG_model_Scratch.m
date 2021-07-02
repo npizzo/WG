@@ -5,15 +5,15 @@ plot(t,y(:,1),'-o',t,y(:,3),'-o')
 
 %%
 g = 9.81; 
-nu = 1e-3;
-beta = 1e-3;
-kappa = 1e-2;
+nu = 1e-2;
+beta = 5e-2;
+kappa = 1e-1;
 k = 1;
-a = 1/10; 
+a = 1/4; 
 omega = sqrt(g * k);
 z = 2; 
-d = z;
-tspan = [0 20];
+d = z-0;
+tspan = [0 30];
 IC = [0; a*omega; 0; a * exp(- k * z) * omega]; %these need to 
 %be chosen to satisfy the e.o.m. for water waves
 [t,y] = ode45(@(t,y) WGM(t,y,g,nu,beta,kappa,k,omega,a,d,z),tspan,IC);
@@ -47,6 +47,7 @@ ylabel('y')
 % y2 = a * exp(- z * k) * cos(k * y(:,3) - omega * t);
 % x = [-pi: .1: pi];
 %% make a movie 
+x= [-pi:.1:pi];
 clf
 for i = 1 : 5 : length(t)
 plot(x, a * cos(k*x-omega*t(i)),'--k')
